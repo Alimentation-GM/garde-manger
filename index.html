@@ -5,16 +5,14 @@
 <title>Consultation Viandes Sous-Vide</title>
 <style>
 html, body {
-  margin:0;
-  padding:0;
+  margin:0; padding:0;
   font-family: Arial, sans-serif;
   background-color:#000;
   color:#fff;
   height:100%;
 }
 .section{
-  width:100%;
-  min-height:100vh;
+  width:100%; min-height:100vh;
   background-image:url('https://i.postimg.cc/5jdTRnky/Design-sans-titre.png');
   background-size:cover;
   background-position:center;
@@ -24,58 +22,37 @@ html, body {
   padding-top:50px;
 }
 .form-container{
-  width:90%;
-  max-width:600px;
+  width:90%; max-width:600px;
   padding:50px 20px;
   background-color:rgba(0,0,0,0.75);
   border-radius:12px;
   box-shadow:0 0 20px #d71f26;
 }
-h1{
+h1{text-align:center; margin-bottom:10px;}
+p.intro-text{
   text-align:center;
-  margin-bottom:20px;
+  font-size:1.1em;
+  line-height:1.4em;
+  margin-bottom:25px;
 }
-label{
-  display:block;
-  margin-top:20px;
-  font-weight:bold;
-}
+label{display:block; margin-top:20px; font-weight:bold;}
 input,select{
-  width:100%;
-  padding:15px;
-  margin-top:6px;
-  border-radius:6px;
-  border:none;
-  font-size:1em;
-  box-sizing:border-box;
+  width:100%; padding:15px; margin-top:6px;
+  border-radius:6px; border:none;
+  font-size:1em; box-sizing:border-box;
 }
 button{
-  margin-top:25px;
-  padding:20px;
-  width:100%;
-  font-size:1.2em;
-  background-color:#000;
-  color:#fff;
-  border:none;
-  border-radius:10px;
-  box-shadow:0 0 20px #d71f26;
-  cursor:pointer;
+  margin-top:25px; padding:20px;
+  width:100%; font-size:1.2em;
+  background-color:#000; color:#fff;
+  border:none; border-radius:10px;
+  box-shadow:0 0 20px #d71f26; cursor:pointer;
 }
-button:hover{
-  box-shadow:0 0 25px #d71f26;
-}
-.message{
-  text-align:center;
-  margin-top:25px;
-  font-size:1.2em;
-}
+button:hover{box-shadow:0 0 25px #d71f26;}
 .confirmation-box{
-  display:none;
-  text-align:center;
-  background-color:rgba(0,0,0,0.75);
-  padding:50px;
-  border-radius:12px;
-  box-shadow:0 0 20px #d71f26;
+  display:none; text-align:center;
+  background-color:rgba(0,0,0,0.75); padding:50px;
+  border-radius:12px; box-shadow:0 0 20px #d71f26;
   max-width:600px;
 }
 a{ color:#fff; }
@@ -85,66 +62,40 @@ a{ color:#fff; }
 <div class="section">
   <div class="form-container" id="formSection">
     <h1>Réservez votre consultation gratuite</h1>
+    <p class="intro-text">🎁 Recevez une boîte d’échantillons gourmets si votre foyer est qualifié 🥩<br>
+    Les deux adultes doivent remplir leurs informations sauf si vous vivez seul.</p>
     <form id="reservationForm" action="https://formspree.io/f/mnjgybyw" method="POST">
-      <label>Nom Mr.</label>
-      <input type="text" name="nomM" required>
-      <label>Téléphone Mr.</label>
-      <input type="text" name="telM" required>
-      <label>Nom Mme</label>
-      <input type="text" name="nomMme">
-      <label>Téléphone Mme</label>
-      <input type="text" name="telMme">
-      <label>Nombre d’adultes</label>
-      <input type="number" name="adultes" min="1" max="10" required>
-      <label>Nombre d’enfants</label>
-      <input type="number" name="enfants" min="0" max="10" required>
+      <label>Nom Mr.</label><input type="text" name="nomM" required>
+      <label>Téléphone Mr.</label><input type="text" name="telM" required>
+      <label>Nom Mme</label><input type="text" name="nomMme">
+      <label>Téléphone Mme</label><input type="text" name="telMme">
+      <label>Nombre d’adultes</label><input type="number" name="adultes" min="1" max="10" required>
+      <label>Nombre d’enfants</label><input type="number" name="enfants" min="0" max="10" required>
 
-     <label>Épicerie principale</label>
-<select name="epicerie1" required>
+      <!-- Épiceries séparées -->
+      <label>Épicerie principale</label>
+      <select name="epicerie1" required>
+        <option value="">Choisir</option>
+        <option>Costco</option>
+        <option>Maxi</option>
+        <option>Super C</option>
+        <option>Metro</option>
+        <option>Iga</option>
+        <option>Boucherie</option>
+        <option>Autre service de livraison à domicile</option>
+      </select>
 
-<option value="">Choisir</option>
-
-<option>Metro</option>
-
-<option>Iga</option>
-
-<option>Super C</option>
-
-<option>Maxi</option>
-
-<option>Pasquier</option>
-
-<option>Boucherie</option>
-
-<option>Costco</option>
-
-<option>Autre service de livraison à domicile</option>
-
-</select>
-
-
-<label>Deuxième épicerie</label>
-<select name="epicerie2">
-
-<option value="">Aucune</option>
-
-<option>Metro</option>
-
-<option>Iga</option>
-
-<option>Super C</option>
-
-<option>Maxi</option>
-
-<option>Pasquier</option>
-
-<option>Boucherie</option>
-
-<option>Costco</option>
-
-<option>Autre service de livraison à domicile</option>
-
-</select>
+      <label>Épicerie secondaire</label>
+      <select name="epicerie2">
+        <option value="">Aucune</option>
+        <option>Costco</option>
+        <option>Maxi</option>
+        <option>Super C</option>
+        <option>Metro</option>
+        <option>Iga</option>
+        <option>Boucherie</option>
+        <option>Autre service de livraison à domicile</option>
+      </select>
 
       <label>Dépense hebdomadaire</label>
       <select name="depense" required>
@@ -168,15 +119,11 @@ a{ color:#fff; }
         <option>3/4</option>
       </select>
 
-      <label>Adresse</label>
-      <input type="text" name="adresse" required>
-      <label>Ville</label>
-      <input type="text" name="ville" required>
-      <label>Code postal</label>
-      <input type="text" name="codepostal" required>
+      <label>Adresse</label><input type="text" name="adresse" required>
+      <label>Ville</label><input type="text" name="ville" required>
+      <label>Code postal</label><input type="text" name="codepostal" required>
 
-      <label>Date consultation</label>
-      <input type="date" id="date" name="date" required>
+      <label>Date consultation</label><input type="date" id="date" name="date" required>
 
       <label>Heure</label>
       <select name="heure" required>
@@ -200,14 +147,12 @@ a{ color:#fff; }
     </form>
   </div>
 
-  <!-- Confirmation qualifié -->
   <div class="confirmation-box" id="confirmationSection">
     <h1>Merci pour votre réservation 🎉</h1>
     <p>Vous recevrez un appel 1 jour avant la consultation pour confirmer votre présence.</p>
     <p>Pour toute question : <a href="https://www.garde-manger.com/fr/" target="_blank">www.garde-manger.com</a></p>
   </div>
 
-  <!-- Non qualifié -->
   <div class="confirmation-box" id="nonQualifieSection">
     <h1>Merci pour votre intérêt</h1>
     <p>Nous allons vous recontacter prochainement.</p>
@@ -216,10 +161,9 @@ a{ color:#fff; }
 </div>
 
 <script>
-// Date min = aujourd'hui +48h et max = 14 prochains jours
+// Date min +48h et max +14 jours
 const dateInput = document.getElementById("date");
-const today = new Date();
-today.setHours(0,0,0,0);
+const today = new Date(); today.setHours(0,0,0,0);
 const minDate = new Date(today.getTime() + 48*60*60*1000);
 const maxDate = new Date(today.getTime() + 15*24*60*60*1000);
 dateInput.min = minDate.toISOString().split("T")[0];
@@ -230,9 +174,9 @@ document.getElementById("reservationForm").addEventListener("submit", function(e
   e.preventDefault();
   const form = e.target;
   const adultes = parseInt(form.adultes.value);
+  const depense = form.depense.value;
   const ep1 = form.epicerie1.value.toLowerCase();
   const ep2 = form.epicerie2.value.toLowerCase();
-  const depense = form.depense.value;
 
   if(adultes>1 && (!form.nomMme.value || !form.telMme.value)){
     alert("Veuillez remplir Mme si plus de 1 adulte.");
@@ -241,7 +185,6 @@ document.getElementById("reservationForm").addEventListener("submit", function(e
 
   const nonQualifie = depense==="moins50" || ep1==="super c" || ep1==="maxi" || ep2==="super c" || ep2==="maxi";
 
-  // simulate "page" by hiding form, showing confirmation
   document.getElementById("formSection").style.display="none";
   if(nonQualifie){
     document.getElementById("nonQualifieSection").style.display="block";
@@ -249,7 +192,6 @@ document.getElementById("reservationForm").addEventListener("submit", function(e
     document.getElementById("confirmationSection").style.display="block";
   }
 
-  // Send form to Formspree
   fetch(form.action,{
     method:"POST",
     body:new FormData(form),
