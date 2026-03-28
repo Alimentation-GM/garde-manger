@@ -1,34 +1,38 @@
 <!DOCTYPE html>
+
 <html lang="fr">
+
 <head>
 
 <meta charset="UTF-8">
+
+<title>Merci</title>
 
 <style>
 
 body{
 margin:0;
 font-family:Arial;
-background:url("https://i.postimg.cc/5jdTRnky/Design-sans-titre.png") center/cover no-repeat fixed;
+background-image:url('https://i.postimg.cc/5jdTRnky/Design-sans-titre.png');
+background-size:cover;
+background-position:center;
 color:white;
-}
-
-.overlay{
-background:rgba(0,0,0,0.75);
-min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
+height:100vh;
+text-align:center;
 }
 
 .box{
-background:rgba(0,0,0,0.85);
-padding:40px;
+background-color:rgba(0,0,0,0.75);
+padding:50px;
 border-radius:12px;
-text-align:center;
+box-shadow:0 0 20px #d71f26;
 max-width:600px;
 }
 
+/* Bouton */
 a{
 display:inline-block;
 margin-top:20px;
@@ -38,6 +42,14 @@ color:white;
 text-decoration:none;
 border-radius:8px;
 box-shadow:0 0 15px #d71f26;
+transition:all 0.3s ease;
+}
+
+/* Effet hover */
+a:hover{
+background:#d71f26;
+box-shadow:0 0 25px #d71f26;
+transform:scale(1.05);
 }
 
 </style>
@@ -46,25 +58,20 @@ box-shadow:0 0 15px #d71f26;
 
 <body>
 
-<div class="overlay">
-
 <div class="box">
 
-<h1>Merci pour votre réservation 🎉</h1>
+<h1>Merci pour votre intérêt</h1>
 
 <p>
-Vous recevrez un appel 24h avant la consultation.
+Merci de votre intérêt, nous vous recontacterons au besoin.
 </p>
 
-<a href="https://www.garde-manger.com/fr/concept/" target="_blank">
-
+<a href="https://garde-manger.com/fr/concept/">
 Voir le concept
-
 </a>
 
 </div>
 
-</div>
-
 </body>
+
 </html>
