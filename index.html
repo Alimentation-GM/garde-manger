@@ -1,203 +1,278 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 <meta charset="UTF-8">
-<title>Consultation Viandes Sous-Vide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Consultation gratuite</title>
+
 <style>
-html, body {
-  margin:0; padding:0;
-  font-family: Arial, sans-serif;
-  background-color:#000;
-  color:#fff;
-  height:100%;
+
+html,body{
+margin:0;
+font-family:Arial;
+background:url("https://i.postimg.cc/5jdTRnky/Design-sans-titre.png") center/cover no-repeat fixed;
+color:white;
 }
-.section{
-  width:100%; min-height:100vh;
-  background-image:url('https://i.postimg.cc/5jdTRnky/Design-sans-titre.png');
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  padding-top:50px;
+
+.overlay{
+background:rgba(0,0,0,0.75);
+min-height:100vh;
+padding:40px 20px;
+display:flex;
+justify-content:center;
 }
-.form-container{
-  width:90%; max-width:600px;
-  padding:50px 20px;
-  background-color:rgba(0,0,0,0.75);
-  border-radius:12px;
-  box-shadow:0 0 20px #d71f26;
+
+.box{
+max-width:650px;
+width:100%;
+background:rgba(0,0,0,0.85);
+padding:30px;
+border-radius:12px;
+box-shadow:0 0 20px #d71f26;
 }
-h1{text-align:center; margin-bottom:10px;}
-p.intro-text{
-  text-align:center;
-  font-size:1.1em;
-  line-height:1.4em;
-  margin-bottom:25px;
+
+h1{
+text-align:center;
+margin-bottom:5px;
 }
-label{display:block; margin-top:20px; font-weight:bold;}
+
+.sub{
+text-align:center;
+margin-bottom:20px;
+font-size:14px;
+}
+
+label{
+display:block;
+margin-top:15px;
+}
+
 input,select{
-  width:100%; padding:15px; margin-top:6px;
-  border-radius:6px; border:none;
-  font-size:1em; box-sizing:border-box;
+width:100%;
+padding:12px;
+margin-top:5px;
+border-radius:6px;
+border:none;
 }
+
+.row{
+display:flex;
+gap:10px;
+}
+
+.row div{
+flex:1;
+}
+
 button{
-  margin-top:25px; padding:20px;
-  width:100%; font-size:1.2em;
-  background-color:#000; color:#fff;
-  border:none; border-radius:10px;
-  box-shadow:0 0 20px #d71f26; cursor:pointer;
+margin-top:25px;
+width:100%;
+padding:16px;
+background:#000;
+color:white;
+font-size:18px;
+border:none;
+border-radius:10px;
+box-shadow:0 0 15px #d71f26;
+cursor:pointer;
 }
-button:hover{box-shadow:0 0 25px #d71f26;}
-.confirmation-box{
-  display:none; text-align:center;
-  background-color:rgba(0,0,0,0.75); padding:50px;
-  border-radius:12px; box-shadow:0 0 20px #d71f26;
-  max-width:600px;
-}
-a{ color:#fff; }
+
 </style>
+
 </head>
+
 <body>
-<div class="section">
-  <div class="form-container" id="formSection">
-    <h1>Réservez votre consultation gratuite</h1>
-    <p class="intro-text">🎁 Recevez une boîte d’échantillons gourmets gratuite si votre foyer est qualifié 🥩<br>
-    Les deux adultes (Mr. et Mme) doivent remplir leurs noms et numéros de téléphone, sauf si vous vivez seul afin qu'on vous contacte la veille</p>
-    <form id="reservationForm" action="https://formspree.io/f/mnjgybyw" method="POST">
-      <label>Nom Mr.</label><input type="text" name="nomM" required>
-      <label>Téléphone Mr.</label><input type="text" name="telM" required>
-      <label>Nom Mme</label><input type="text" name="nomMme">
-      <label>Téléphone Mme</label><input type="text" name="telMme">
-      <label>Nombre d’adultes</label><input type="number" name="adultes" min="1" max="10" required>
-      <label>Nombre d’enfants</label><input type="number" name="enfants" min="0" max="10" required>
 
-      <!-- Épiceries séparées -->
-      <label>Épicerie principale</label>
-      <select name="epicerie1" required>
-        <option value="">Choisir</option>
-        <option>Costco</option>
-        <option>Maxi</option>
-        <option>Super C</option>
-        <option>Metro</option>
-        <option>Iga</option>
-        <option>Boucherie</option>
-        <option>Autre service de livraison à domicile</option>
-      </select>
+<div class="overlay">
 
-      <label>Épicerie secondaire</label>
-      <select name="epicerie2">
-        <option value="">Aucune</option>
-        <option>Costco</option>
-        <option>Maxi</option>
-        <option>Super C</option>
-        <option>Metro</option>
-        <option>Iga</option>
-        <option>Boucherie</option>
-        <option>Autre service de livraison à domicile</option>
-      </select>
+<div class="box">
 
-      <label>Dépense hebdomadaire</label>
-      <select name="depense" required>
-        <option value="">Choisir</option>
-        <option value="moins50">Moins de 50$</option>
-        <option value="50ouplus">50$ ou plus</option>
-      </select>
+<h1>Réservez votre consultation gratuite</h1>
 
-      <label>Congélateur séparé</label>
-      <select name="congelateur" required>
-        <option value="">Choisir</option>
-        <option value="oui">Oui</option>
-        <option value="non">Non</option>
-      </select>
+<div class="sub">
 
-      <label>Niveau congélateur</label>
-      <select name="niveauCongelateur" required>
-        <option value="">Choisir</option>
-        <option>1/4</option>
-        <option>1/2</option>
-        <option>3/4</option>
-      </select>
+🎁 Recevez une boîte d’échantillons gourmets si votre foyer est qualifié 🥩
+<br>
+Les deux adultes doivent remplir leurs informations sauf si vous vivez seul.
 
-      <label>Adresse</label><input type="text" name="adresse" required>
-      <label>Ville</label><input type="text" name="ville" required>
-      <label>Code postal</label><input type="text" name="codepostal" required>
+</div>
 
-      <label>Date consultation</label><input type="date" id="date" name="date" required>
+<form onsubmit="return envoyerFormulaire()">
 
-      <label>Heure</label>
-      <select name="heure" required>
-        <option value="">Choisir</option>
-        <option>09h - 10h</option>
-        <option>10h - 11h</option>
-        <option>11h - 12h</option>
-        <option>12h - 13h</option>
-        <option>13h - 14h</option>
-        <option>14h - 15h</option>
-        <option>15h - 16h</option>
-        <option>16h - 17h</option>
-        <option>17h - 18h</option>
-        <option>18h - 19h</option>
-        <option>19h - 20h</option>
-        <option>20h - 21h</option>
-      </select>
+<label>Nom Mr.</label>
+<input required>
 
-      <input type="hidden" name="_subject" value="Nouvelle réservation garde-manger">
-      <button type="submit">Réserver ma consultation gratuite</button>
-    </form>
-  </div>
+<label>Téléphone Mr.</label>
+<input required>
 
-  <div class="confirmation-box" id="confirmationSection">
-    <h1>Merci pour votre réservation 🎉</h1>
-    <p>Vous recevrez un appel 1 jour avant la consultation pour confirmer votre présence.</p>
-    <p>Pour toute question : <a href="https://www.garde-manger.com/fr/" target="_blank">www.garde-manger.com</a></p>
-  </div>
+<label>Nom Mme (laisser vide si vous vivez seul)</label>
+<input id="nomMme">
 
-  <div class="confirmation-box" id="nonQualifieSection">
-    <h1>Merci pour votre intérêt</h1>
-    <p>Nous allons vous recontacter prochainement.</p>
-    <p>www.garde-manger.com</p>
-  </div>
+<label>Téléphone Mme</label>
+<input id="telMme">
+
+<label>Nombre d'adultes</label>
+<input type="number" id="adultes" min="1" max="6" required>
+
+<label>Nombre d'enfants</label>
+<input type="number" min="0" max="10" required>
+
+<label>Épicerie principale</label>
+
+<select id="ep1" required>
+
+<option value="">Choisir</option>
+<option>Costco</option>
+<option>Maxi</option>
+<option>Super C</option>
+<option>Metro</option>
+<option>IGA</option>
+<option>Boucherie</option>
+<option>Autre service de livraison à domicile</option>
+
+</select>
+
+<label>Épicerie secondaire</label>
+
+<select id="ep2">
+
+<option value="">Aucune</option>
+<option>Costco</option>
+<option>Maxi</option>
+<option>Super C</option>
+<option>Metro</option>
+<option>IGA</option>
+<option>Boucherie</option>
+<option>Autre service de livraison à domicile</option>
+
+</select>
+
+<label>Dépense épicerie / semaine</label>
+
+<select id="depense" required>
+
+<option value="">Choisir</option>
+<option value="moins50">moins de 50$</option>
+<option value="plus50">50$ ou +</option>
+
+</select>
+
+<label>Congélateur séparé</label>
+
+<select required>
+
+<option>Oui</option>
+<option>Non</option>
+
+</select>
+
+<label>Adresse</label>
+<input required>
+
+<div class="row">
+
+<div>
+<label>Ville</label>
+<input required>
+</div>
+
+<div>
+<label>Code postal</label>
+<input required>
+</div>
+
+</div>
+
+<label>Date consultation</label>
+<input type="date" id="date" required>
+
+<label>Heure</label>
+
+<select required>
+
+<option>09h</option>
+<option>10h</option>
+<option>11h</option>
+<option>12h</option>
+<option>13h</option>
+<option>14h</option>
+<option>15h</option>
+<option>16h</option>
+<option>17h</option>
+<option>18h</option>
+<option>19h</option>
+<option>20h</option>
+
+</select>
+
+<button>
+
+Réserver ma consultation gratuite
+
+</button>
+
+<p style="text-align:center;margin-top:15px;">
+Quantités limitées — réservé aux foyers qualifiés.*
+<br>
+Vivez l’expérience dès maintenant !
+</p>
+
+</form>
+
+</div>
+
 </div>
 
 <script>
-// Date min +48h et max +14 jours
-const dateInput = document.getElementById("date");
-const today = new Date(); today.setHours(0,0,0,0);
-const minDate = new Date(today.getTime() + 48*60*60*1000);
-const maxDate = new Date(today.getTime() + 15*24*60*60*1000);
-dateInput.min = minDate.toISOString().split("T")[0];
-dateInput.max = maxDate.toISOString().split("T")[0];
 
-// Form submission
-document.getElementById("reservationForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  const form = e.target;
-  const adultes = parseInt(form.adultes.value);
-  const depense = form.depense.value;
-  const ep1 = form.epicerie1.value.toLowerCase();
-  const ep2 = form.epicerie2.value.toLowerCase();
+const dateInput=document.getElementById("date");
 
-  if(adultes>1 && (!form.nomMme.value || !form.telMme.value)){
-    alert("Veuillez remplir Mme si plus de 1 adulte.");
-    return;
-  }
+let today=new Date();
+today.setHours(0,0,0,0);
 
-  const nonQualifie = depense==="moins50" || ep1==="super c" || ep1==="maxi" || ep2==="super c" || ep2==="maxi";
+let min=new Date(today.getTime()+48*60*60*1000);
+let max=new Date(today.getTime()+15*24*60*60*1000);
 
-  document.getElementById("formSection").style.display="none";
-  if(nonQualifie){
-    document.getElementById("nonQualifieSection").style.display="block";
-  } else {
-    document.getElementById("confirmationSection").style.display="block";
-  }
+dateInput.min=min.toISOString().split("T")[0];
+dateInput.max=max.toISOString().split("T")[0];
 
-  fetch(form.action,{
-    method:"POST",
-    body:new FormData(form),
-    headers:{'Accept':'application/json'}
-  }).catch(()=>{});
-});
+function envoyerFormulaire(){
+
+let adultes=document.getElementById("adultes").value;
+
+let nomMme=document.getElementById("nomMme").value;
+let telMme=document.getElementById("telMme").value;
+
+if(adultes>1 && (nomMme=="" || telMme=="")){
+
+alert("Veuillez remplir les informations de Mme si plus de 1 adulte.");
+
+return false;
+
+}
+
+let ep1=document.getElementById("ep1").value.toLowerCase();
+let ep2=document.getElementById("ep2").value.toLowerCase();
+
+let depense=document.getElementById("depense").value;
+
+if(ep1=="maxi" || ep1=="super c" || ep2=="maxi" || ep2=="super c" || depense=="moins50"){
+
+window.location.href="nonqualifie.html";
+
+}else{
+
+window.location.href="merci.html";
+
+}
+
+return false;
+
+}
+
 </script>
+
 </body>
 </html>
